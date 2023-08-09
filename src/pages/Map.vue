@@ -1,7 +1,5 @@
 <script>
 
-import pinkMap from "../assets/pinkMap.webp";
-
 export default {
     data(){
         return{
@@ -295,8 +293,8 @@ export default {
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askFor1stAddon || askFor2ndAddon">
 
             <div class="col img-col">
-                <h1 v-if="askFor1stAddon">🔨Select your 1st addon🔨</h1>
-                <h1 v-if="askFor2ndAddon">🔨Select your 2nd addon🔨</h1>
+                <h2 v-if="askFor1stAddon">🔨Select your 1st addon🔨</h2>
+                <h2 v-if="askFor2ndAddon">🔨Select your 2nd addon🔨</h2>
 
                 <img src="../assets/mapAddons/FulliconAddon_mapAddendum.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(1)">
                 <img src="../assets/mapAddons/FulliconAddon_yellowWire.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(2)">
