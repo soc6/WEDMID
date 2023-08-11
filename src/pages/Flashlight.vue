@@ -319,64 +319,63 @@ export default {
             <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
         </router-link>
         
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
             <div class="col img-col">
-                <h1>💎Select your rarity💎</h1>
+                <h1 style="font-size:3vw;">💎Select your rarity💎</h1>
 
-                <img src="../assets/yellowFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" width="100" @click="raritySelect(1)">
-                <img src="../assets/greenFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" width="100" @click="raritySelect(2)">
-                <img src="../assets/purpleFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" width="100" @click="raritySelect(3)">
+                <img src="../assets/yellowFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(1)">
+                <img src="../assets/greenFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(2)">
+                <img src="../assets/purpleFlashLight.webp" alt="Uncommon Flashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(3)">
                 <br>
-                <img src="../assets/willFlashLight.webp" alt="Halloween Flashlight" class="img-fluid" width="100" @click="raritySelect(5)">
-                <img src="../assets/anniFlashLight.webp" alt="AnniversaryFlashlight" class="img-fluid" width="100" @click="raritySelect(6)">
-                <img src="../assets/masFlashLight.webp" alt="Masquerade Flashlight" class="img-fluid" width="100" @click="raritySelect(7)">
+                <img src="../assets/willFlashLight.webp" alt="Halloween Flashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(5)">
+                <img src="../assets/anniFlashLight.webp" alt="AnniversaryFlashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(6)">
+                <img src="../assets/masFlashLight.webp" alt="Masquerade Flashlight" class="img-fluid" style="width: 20%;" @click="raritySelect(7)">
             </div>
 
         </div>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askFor1stAddon || askFor2ndAddon">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askFor1stAddon || askFor2ndAddon">
 
             <div class="col img-col">
-                <h2 v-if="askFor1stAddon">🔨Select your 1st addon🔨</h2>
-                <h2 v-if="askFor2ndAddon">🔨Select your 2nd addon🔨</h2>
+                <h2 v-if="askFor1stAddon" style="font-size:2vw;">🔨Select your 1st addon🔨</h2>
+                <h2 v-if="askFor2ndAddon" style="font-size:2vw;">🔨Select your 2nd addon🔨</h2>
 
-                <img src="..//assets/flashlightAddons/FulliconAddon_wideLens.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(1)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_powerBulb.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(2)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_leatherGrip.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(3)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_battery.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(4)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_tirOptic.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(5)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_wideLens.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(1)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_powerBulb.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(2)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_leatherGrip.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(3)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_battery.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(4)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_tirOptic.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(5)">
                 <br>
-                <img src="..//assets/flashlightAddons/FulliconAddon_rubberGrip.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(6)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_lowAmpFilament.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(7)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_heavyDutyBattery.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(8)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_focusLens.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(9)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_longLifeBattery.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(10)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_rubberGrip.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(6)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_lowAmpFilament.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(7)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_heavyDutyBattery.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(8)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_focusLens.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(9)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_longLifeBattery.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(10)">
                 <br>
-                <img src="..//assets/flashlightAddons/FulliconAddon_intenseHalogen.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(11)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_high-EndSapphireLens.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(12)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_oddBulb.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(13)">
-                <img src="..//assets/flashlightAddons/FulliconAddon_brokenBulb.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(14)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_intenseHalogen.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(11)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_high-EndSapphireLens.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(12)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_oddBulb.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(13)">
+                <img src="..//assets/flashlightAddons/FulliconAddon_brokenBulb.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(14)">
                 <br>
-                <button class="btn btn-danger" style="color: black;" @click="AddonSelect(0)">No Addon</button>
+                <button class="btn btn-danger" style="color: black; font-size:1.5vw;" @click="AddonSelect(0)">No Addon</button>
                 
             </div>
 
         </div>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
 
             <div class="col img-col">
-                <h1>🔦Your Item🔦</h1>
+                <h1 style="font-size:3vw;">🔦Your Item🔦</h1>
 
-                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap" @load="renderItem">
-                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" v-if="this.addon1Exist">
-                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2" v-if="this.addon2Exist">
+                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" style="width: 20%;" id = "finalMap" @load="renderItem">
+                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" style="width: 13%;" id = "finalAddon1" v-if="this.addon1Exist">
+                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" style="width: 13%;" id = "finalAddon2" v-if="this.addon2Exist">
                 <br>
-                <h3>Your flashlight has</h3>
-                <b id="info"></b>
-                <br>
-                <b id="kb"></b>
+                <h3 style="font-size:2vh;">Your flashlight has</h3>
+                <b id="info" style="font-size:1.5vh;"></b>
+                
 
             </div>
 

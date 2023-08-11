@@ -326,47 +326,47 @@ export default {
             <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
         </router-link>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
             <div class="col img-col">
-                <h1>💎Select your rarity💎</h1>
+                <h1 style="font-size:3vw;">💎Select your rarity💎</h1>
 
-                <img src="../assets/brownToolBox.webp" alt="Common Toolbox" class="img-fluid" width="100" @click="raritySelect(1)">
-                <img src="../assets/yellowToolBox.webp" alt="Uncommon Toolbox" class="img-fluid" width="100" @click="raritySelect(2)">
-                <img src="../assets/mechanicToolBox.webp" alt="mechanics Toolbox" class="img-fluid" width="100" @click="raritySelect(3)">
-                <img src="../assets/commoToolBox.webp" alt="como Toolbox" class="img-fluid" width="100" @click="raritySelect(4)">
-                <img src="../assets/engiToolBox.webp" alt="Rare mechanics Toolbox" class="img-fluid" width="100" @click="raritySelect(5)">
-                <img src="../assets/alexToolBox.webp" alt="Alex Toolbox" class="img-fluid" width="100" @click="raritySelect(6)">
+                <img src="../assets/brownToolBox.webp" alt="Common Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(1)">
+                <img src="../assets/yellowToolBox.webp" alt="Uncommon Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(2)">
+                <img src="../assets/mechanicToolBox.webp" alt="mechanics Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(3)">
+                <img src="../assets/commoToolBox.webp" alt="como Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(4)">
+                <img src="../assets/engiToolBox.webp" alt="Rare mechanics Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(5)">
+                <img src="../assets/alexToolBox.webp" alt="Alex Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(6)">
                 <br>
-                <img src="../assets/lunarToolBox.webp" alt="Lunar Toolbox" class="img-fluid" width="100" @click="raritySelect(7)">
-                <img src="../assets/anniToolBox.webp" alt="Anniversary Toolbox" class="img-fluid" width="100" @click="raritySelect(8)">
-                <img src="../assets/masToolBox.webp" alt="Masquerade Toolbox" class="img-fluid" width="100" @click="raritySelect(9)">
+                <img src="../assets/lunarToolBox.webp" alt="Lunar Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(7)">
+                <img src="../assets/anniToolBox.webp" alt="Anniversary Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(8)">
+                <img src="../assets/masToolBox.webp" alt="Masquerade Toolbox" class="img-fluid" style="width: 16%;" @click="raritySelect(9)">
 
             </div>
 
         </div>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askFor1stAddon || askFor2ndAddon">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askFor1stAddon || askFor2ndAddon">
 
             <div class="col img-col">
-                <h2 v-if="askFor1stAddon">🔨Select your 1st addon🔨</h2>
-                <h2 v-if="askFor2ndAddon">🔨Select your 2nd addon🔨</h2>
+                <h2 v-if="askFor1stAddon" style="font-size:2vw;">🔨Select your 1st addon🔨</h2>
+                <h2 v-if="askFor2ndAddon" style="font-size:2vw;">🔨Select your 2nd addon🔨</h2>
 
-                <img src="..//assets/toolboxAddons/FulliconAddon_scraps.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(1)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_instructions.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(2)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_cleanRag.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(3)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_wireSpool.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(4)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_scraps.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(1)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_instructions.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(2)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_cleanRag.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(3)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_wireSpool.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(4)">
                 <br>
-                <img src="..//assets/toolboxAddons/FulliconAddon_springClamp.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(5)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_socketSwivels.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(6)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_protectiveGloves.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(7)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_cuttingWire.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(8)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_springClamp.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(5)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_socketSwivels.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(6)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_protectiveGloves.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(7)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_cuttingWire.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(8)">
                 <br>
-                <img src="..//assets/toolboxAddons/FulliconAddon_hacksaw.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(9)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_gripWrench.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(10)">
-                <img src="..//assets/toolboxAddons/FulliconAddon_brandNewPart.webp" alt="Rare Map" class="img-fluid" width="80" @click="AddonSelect(11)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_hacksaw.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(9)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_gripWrench.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(10)">
+                <img src="..//assets/toolboxAddons/FulliconAddon_brandNewPart.webp" alt="Rare Map" class="img-fluid" style="width: 15%;" @click="AddonSelect(11)">
                 <br>
-                <button class="btn btn-danger" style="color: black;" @click="AddonSelect(0)">No Addon</button>
+                <button class="btn btn-danger" style="color: black; font-size:1.5vw;" @click="AddonSelect(0)">No Addon</button>
                 
             </div>
 
@@ -375,16 +375,14 @@ export default {
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-3 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
 
             <div class="col img-col">
-                <h1>🧰Your Item🧰</h1>
+                <h1 style="font-size:3vw;">🧰Your Item🧰</h1>
 
-                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap" @load="renderItem">
-                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" v-if="this.addon1Exist">
-                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2" v-if="this.addon2Exist">
+                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" style="width: 20%;" id = "finalMap" @load="renderItem">
+                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" style="width: 13%;" id = "finalAddon1" v-if="this.addon1Exist">
+                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" style="width: 13%;" id = "finalAddon2" v-if="this.addon2Exist">
                 <br>
-                <h3>Your toolbox has</h3>
-                <b id="info"></b>
-                <br>
-                <b id="kb"></b>
+                <h3 style="font-size:2vh;">Your toolbox has</h3>
+                <b id="info" style="font-size:1.2vh;"></b>
 
             </div>
 
