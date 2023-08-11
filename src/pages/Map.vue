@@ -8,6 +8,9 @@ export default {
             askFor2ndAddon : false,
             showFinalItem : false,
 
+            addon1Exist : true,
+            addon2Exist : true,
+
             rarity : -1,
             addon1 : -1,
             addon2 : -1,
@@ -25,6 +28,7 @@ export default {
         }
     },
     methods : {
+        //stores rarity selected and switches to addon screen
         raritySelect(theRarity){
             this.rarity = theRarity;
             console.log("Selected Rarity = "+this.rarity);
@@ -32,6 +36,7 @@ export default {
             this.askFor1stAddon = true;
         },
 
+        //stores 2 addons, calls itemCalculate() and switches to final item screen
         AddonSelect(addon){
             if(this.askFor1stAddon == true){
 
@@ -68,14 +73,14 @@ export default {
         },
 
         
-
+        //Calculates the stats of the item
         itemCalculate(){
 
             let glassBead = false;
             let crystalBead = false;
 
             switch(this.rarity){
-                case 2 :
+                case 2 : // Map (green)
                     this.mapRange = 8;
                     this.mapDuration = 20;
                     this.mapTracks[0] = "Generators";
@@ -84,7 +89,7 @@ export default {
                     
                     
                     break;
-                case 4 :
+                case 4 : //Rainbow Map (pink)
                     this.mapRange = 8;
                     this.mapDuration = 20;
                     this.mapTracks[0] = "Generators";
@@ -110,128 +115,92 @@ export default {
             for (let i = 0; i < 2;i++){ 
 
                 switch(curAddon){
-                    case 1 :
+                    case 1 : //Map Addendum
                         this.mapDuration = this.mapDuration + 5;
                         console.log("Map Duration : "+this.mapDuration);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_mapAddendum-dc3395b8.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_mapAddendum-dc3395b8.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_mapAddendum-dc3395b8.webp";
                         break;
-                    case 2 :
+                    case 2 : //Yellow Wire
                         this.mapTracks[1] = "Exit Gates";
                         console.log("Tracks : "+this.mapTracks[1]);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_yellowWire-4925ac38.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_yellowWire-4925ac38.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_yellowWire-4925ac38.webp";
                         break;
-                    case 3 :
+                    case 3 : //Unusual Stamp
                         this.mapRange = this.mapRange + 8;
                         console.log("Map Range : "+this.mapRange);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_unusualStamp-7d91204e.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_unusualStamp-7d91204e.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_unusualStamp-7d91204e.webp";
                         break;
-                    case 4 : 
+                    case 4 : //Retardant Jelly
                         this.mapDuration = this.mapDuration + ((this.mapDuration / 0.8) - this.mapDuration);
                         console.log("Map Duration : "+this.mapDuration);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_retardantJelly-7d701b8e.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_retardantJelly-7d701b8e.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_retardantJelly-7d701b8e.webp";
                         break;
-                    case 5 :
+                    case 5 : //Red Twine
                         this.mapTracks[3] = "Killer Belongings";
                         console.log("Tracks : "+this.mapTracks[3]);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_redTwine-669413ba.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_redTwine-669413ba.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_redTwine-669413ba.webp";
                         break;
-                    case 6 :
+                    case 6 : //Glass Bead
                         this.glassBead = true;
                         console.log("Glassbead : "+glassBead);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_glassBead-1a81b28d.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_glassBead-1a81b28d.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_glassBead-1a81b28d.webp";
                         break;
-                    case 7 : 
+                    case 7 : //Odd Stamp
                         this.mapRange = this.mapRange + 12;
                         console.log("Map Range : "+this.mapRange);
                         
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_oddStamp-93a621b7.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_oddStamp-93a621b7.webp";
-                        }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_oddStamp-93a621b7.webp";
                         break;
-                    case 8 :
+                    case 8 : //Black Silk Cord
                         this.mapTracks[2] = "the Hatch";
                         console.log("Tracks : "+this.mapTracks[2]);
-                        
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_blackSilkCord-ce9222c8.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_blackSilkCord-ce9222c8.webp";
-                        }
+
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_blackSilkCord-ce9222c8.webp";
                         break;
-                    case 9 :
+                    case 9 : //Crystal Bead
                         this.crystalBead = true;
                         console.log("Crystalbead : "+crystalBead);
-                        
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_crystalBead-1328f942.webp";
-                        }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_crystalBead-1328f942.webp";
-                        }
+
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_crystalBead-1328f942.webp";
                         break;
                     case 0 :
                         //no addon, no additional affects
-                        if(i == 0){
-                            this.addon1Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_unusualStamp-7d91204e.webp";
+                        if(i==0){
+                            this.addon1Exist = false;
                         }
-                        else{
-                            this.addon2Image = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_unusualStamp-7d91204e.webp";
+                        else if(i==1){
+                            this.addon2Exist = false;
                         }
+                        curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_yellowWire-4925ac38.webp";
                         break;
                 }
 
                 curAddon = this.addon2;
-                curAddonImageID = "finalAddon2";
+                //curAddonImageID = "finalAddon2";
+
+                if(i == 0){
+                    this.addon1Image = curAddonImageID;
+                }
+                else{
+                    this.addon2Image = curAddonImageID;
+                }
 
             }
 
             
         },
 
+        //displays info for item
         renderItem(){
 
-            let itemInfo = "• "+ this.mapRange + " meters of range <br>";
-            itemInfo += "• "+ this.mapDuration + " seconds of use <br>";
+            let itemInfo = "• <b>"+ this.mapRange + "</b> meters of range <br>";
+            itemInfo += "• <b>"+ this.mapDuration + "</b> seconds of use <br>";
             
 
             
@@ -246,7 +215,7 @@ export default {
             itemInfo += "• Can Track ";
             for(let i = 0; i < this.mapTracks.length; i++){
                 if(this.mapTracks[i] != null){
-                    itemInfo += this.mapTracks[i];
+                    itemInfo += "<b>"+this.mapTracks[i]+"</b>";
 
                     if(i != this.mapTracks.length -1){
                     itemInfo += ", ";
@@ -257,7 +226,7 @@ export default {
             itemInfo += "<br>";
 
             if(this.mapTracks[3] != null){
-                document.getElementById("kb").innerHTML = "(Note : Trackable Killer Belongings include Traps, Dream pallets,<br> Dream snares, Hooks, Jigsaw Boxes, activated portals, totems)"
+                document.getElementById("kb").innerHTML = "<b>NOTE : Trackable Killer Belongings include Traps, Dream pallets,<br> Dream snares, Hooks, Jigsaw Boxes, activated portals, totems</b>"
             }
 
             document.getElementById("info").innerHTML = itemInfo;
@@ -278,6 +247,10 @@ export default {
 <template>
 
     <div class="container">
+
+        <router-link to="/">
+            <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
+        </router-link>
     
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
@@ -319,9 +292,9 @@ export default {
             <div class="col img-col">
                 <h1>🗺️Your Item🗺️</h1>
 
-                <img v-bind:src="mapImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap">
-                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" @load="renderItem">
-                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2">
+                <img v-bind:src="mapImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap" @load="renderItem">
+                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" v-if="addon1Exist">
+                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2" v-if="addon2Exist">
                 <br>
                 <h3>Your map has</h3>
                 <b id="info"></b>

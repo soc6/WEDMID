@@ -43,6 +43,7 @@ export default {
         }
     },
     methods : {
+        //stores rarity selected and switches to addon screen
         raritySelect(theRarity){
             this.rarity = theRarity;
             console.log("Selected Rarity = "+this.rarity);
@@ -50,6 +51,7 @@ export default {
             this.askFor1stAddon = true;
         },
 
+        //stores 2 addons, calls itemCalculate() and switches to final item screen
         AddonSelect(addon){
             if(this.askFor1stAddon == true){
 
@@ -86,7 +88,7 @@ export default {
         },
 
         
-        //calcualtes info for item
+        //Calculates the stats of the item
         itemCalculate(){
 
 
@@ -319,7 +321,11 @@ export default {
 
 <template>
     <div class="container">
-        
+
+        <router-link to="/">
+            <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
+        </router-link>
+
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
             <div class="col img-col">
@@ -366,7 +372,7 @@ export default {
 
         </div>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-3 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
 
             <div class="col img-col">
                 <h1>🧰Your Item🧰</h1>

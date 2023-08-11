@@ -32,21 +32,6 @@ export default {
             styptic : -1,
             syringe : -1,
 
-            /////////////////////////
-
-            lightDuration : -1,
-            lightRange : 10,
-            blindsFor : 2,
-
-            beamBrightness : 0,
-            aimAccuracy : 0,
-            beamAngle : 20,
-
-            spooky : false,
-            flicker : false,
-
-            ///////////////////////////
-
             itemImage : "https://fidoseofreality.com/wp-content/uploads/2022/11/ROAN-FEATURE.jpg",
             addon1Image : "https://fidoseofreality.com/wp-content/uploads/2022/11/ROAN-FEATURE.jpg",
             addon2Image : "https://fidoseofreality.com/wp-content/uploads/2022/11/ROAN-FEATURE.jpg", 
@@ -54,6 +39,7 @@ export default {
         }
     },
     methods : {
+        //stores rarity selected and switches to addon screen
         raritySelect(theRarity){
             this.rarity = theRarity;
             console.log("Selected Rarity = "+this.rarity);
@@ -61,6 +47,7 @@ export default {
             this.askFor1stAddon = true;
         },
 
+        //stores 2 addons, calls itemCalculate() and switches to final item screen
         AddonSelect(addon){
             if(this.askFor1stAddon == true){
 
@@ -97,7 +84,7 @@ export default {
         },
 
         
-        //calcualtes info for item
+        //Calculates the stats of the item
         itemCalculate(){
 
 
@@ -106,21 +93,21 @@ export default {
             let selfSpeed = 1;
 
             switch(this.rarity){
-                case 0 :
+                case 0 : //Camping Aid Kit (Brown)
                     this.charges = 24;
                     altSpeed += 0.35;
                     selfSpeed += -0.33;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/brownMedKit-264067e8.webp";
                     break;
-                case 1 :
+                case 1 : //First Aid Kit (yellow)
                     this.charges = 24;
                     altSpeed += 0.4;
                     selfSpeed += -0.33;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/yellowMedKit-1117ffb2.webp";
                     break;
-                case 2 :
+                case 2 : //Emergency Med-Kit (green)
                     this.charges = 24;
                     altSpeed += 0.45;
                     selfSpeed += -0.33;
@@ -128,7 +115,7 @@ export default {
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/greenMedKit-c8dea6b4.webp";
                     
                     break;
-                case 3 :
+                case 3 : //Ranger Med-Kit (purple)
                     this.charges = 24;
                     altSpeed += 0.5;
                     selfSpeed += -0.33;
@@ -136,7 +123,7 @@ export default {
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/purpleMedKit-e25c42f3.webp";
             
                     break;
-                case 5 :
+                case 5 : //All Hallows' Eve Lunchbox (event)
                     this.charges = 24;
                     altSpeed += 0.4;
                     selfSpeed += -0.33;
@@ -144,7 +131,7 @@ export default {
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/halloMedKit-05ab12d2.webp";
                     
                     break;
-                case 6 :
+                case 6 : //Anniversary Med-kit (event)
                     this.charges = 24;
                     altSpeed += 0.4;
                     selfSpeed += -0.33;
@@ -152,7 +139,7 @@ export default {
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/anniMedKit-49282e02.webp";
                     break;
-                case 7 :
+                case 7 : //Masquerade Med-Kit (event)
                     this.charges = 24;
                     altSpeed += 0.4;
                     selfSpeed += -0.33;
@@ -285,20 +272,20 @@ export default {
         renderItem(){
 
 
-            let itemInfo = "• "+ this.charges + " charges <br>";
-            itemInfo += "• Can heal yourself "+this.selfsAmount.toFixed(2)+" time(s) <br>";
-            itemInfo += "• Can heal other survivors "+this.altsAmount.toFixed(2)+" time(s) <br>";
-            itemInfo += "• Takes "+this.healTimeALT.toFixed(2)+ " seconds to heal another survivor <br>";
-            itemInfo += "• Takes "+this.healTimeSelf.toFixed(2)+ " seconds to heal yourself <br>";
+            let itemInfo = "• <b>"+ this.charges + "</b> charges <br>";
+            itemInfo += "• Can heal yourself <b>"+this.selfsAmount.toFixed(2)+"</b> time(s) <br>";
+            itemInfo += "• Can heal other survivors <b>"+this.altsAmount.toFixed(2)+"</b> time(s) <br>";
+            itemInfo += "• Takes <b>"+this.healTimeALT.toFixed(2)+ "</b> seconds to heal another survivor <br>";
+            itemInfo += "• Takes <b>"+this.healTimeSelf.toFixed(2)+ "</b> seconds to heal yourself <br>";
 
             if(this.greatSucces != 0){
-                itemInfo += "• Great skill check zones are "+this.greatSucces+"% bigger <br>";
+                itemInfo += "• Great skill check zones are <b>"+this.greatSucces+"%</b> bigger <br>";
             }
             if(this.skillOdds != 0){
-                itemInfo += "• Increases odds of triggering a skill check by "+this.skillOdds+"% <br>";
+                itemInfo += "• Increases odds of triggering a skill check by <b>"+this.skillOdds+"%</b> <br>";
             }
             if(this.progBonus != 0){
-                itemInfo += "• Progression bonus from great skill checks increased by "+this.progBonus+"% <br>";
+                itemInfo += "• Progression bonus from great skill checks increased by <b>"+this.progBonus+"%</b> <br>";
             }
 
             if(this.confetti == true){
@@ -306,32 +293,34 @@ export default {
             }
 
             
-            if((this.syringe == 1 || this.serum == 1 || this.styptic == 1) && (this.syringe == 0 || this.serum == 0 || this.styptic == 0)){
-                if(this.serum == 0){
-                    itemInfo += "• Can use secondary action button while healing<br>to give +5% movement speed for next 16 seconds <br> (Consumes Med-kit on use) <br>";
-                }
-
-                if(this.syringe == 0){
-                    itemInfo += "• Can use secondary action button while healing to<br>automatically heal a survivor over the next 16 seconds <br> (Consumes Med-kit on use) <br>";
-                }
-            
-                if(this.styptic == 0){
-                    itemInfo += "• Can use secondary action button while<br>healing to give 5 seconds of endurance <br> (Consumes Med-kit on use) <br>";
-                }
-                itemInfo += "<b>NOTE : First addon has cancelled out the effects of the second addon<b>"
-            }
-            else{
-                if(this.serum > -1){
-                itemInfo += "• Can use secondary action button while healing<br>to give +5% movement speed for next 16 seconds <br> (Consumes Med-kit on use) <br>";
-                }
-
-                if(this.syringe > -1){
-                    itemInfo += "• Can use secondary action button while healing to<br>automatically heal a survivor over the next 16 seconds <br> (Consumes Med-kit on use) <br>";
+            //they dont cancel out, fix this
+            if(this.syringe > -1 || this.serum > -1 || this.styptic > -1){
+                itemInfo += "• Can use secondary action button while healing<br>"; 
+                if(this.serum > -1 ){
+                    itemInfo += "to give <b>+5%</b> movement speed for next <b>16</b> seconds";
+                    if(this.styptic > -1 || this.syringe > -1){
+                        itemInfo += " and<br>"; 
+                    }
+                    else{
+                        itemInfo += "<br>";
+                    }
                 }
             
-                if(this.styptic > -1){
-                    itemInfo += "• Can use secondary action button while<br>healing to give 5 seconds of endurance <br> (Consumes Med-kit on use) <br>";
+                if(this.styptic > -1 ){
+                    itemInfo += "to give <b>5</b> seconds of endurance";
+                    if(this.syringe > -1){
+                        itemInfo += " and<br>"; 
+                    }
+                    else{
+                        itemInfo += "<br>";
+                    }
                 }
+
+                if(this.syringe > -1 ){
+                    itemInfo += "to automatically heal a survivor over the next<br><b>"+this.healTimeSelf.toFixed(2)+" (Self)</b> or <b>"+this.healTimeALT.toFixed(2)+" (Altruistic)</b> seconds <br>";
+                    //not over next 16 seconds, equivilant to how long it takes to heal a survivor, different for alt and solo
+                }
+                itemInfo += "<b>(Consumes Med-kit on use)</b> <br>"
             }
             
             
@@ -350,6 +339,10 @@ export default {
 
 <template>
     <div class="container">
+
+        <router-link to="/">
+            <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
+        </router-link>
         
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
@@ -398,7 +391,7 @@ export default {
 
         </div>
 
-        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
+        <div class=" border position-fixed top-50 start-50 translate-middle shadow p-4 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="showFinalItem">
 
             <div class="col img-col">
                 <h1>❤️Your Item❤️</h1>

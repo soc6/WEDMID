@@ -8,6 +8,9 @@ export default {
             askFor2ndAddon : false,
             showFinalItem : false,
 
+            addon1Exist : true,
+            addon2Exist : true,
+
             rarity : -1,
             addon1 : -1,
             addon2 : -1,
@@ -30,6 +33,7 @@ export default {
         }
     },
     methods : {
+        //stores rarity selected and switches to addon screen
         raritySelect(theRarity){
             this.rarity = theRarity;
             console.log("Selected Rarity = "+this.rarity);
@@ -37,6 +41,7 @@ export default {
             this.askFor1stAddon = true;
         },
 
+        //stores 2 addons, calls itemCalculate() and switches to final item screen
         AddonSelect(addon){
             if(this.askFor1stAddon == true){
 
@@ -73,25 +78,25 @@ export default {
         },
 
         
-        //calcualtes info for item
+        //Calculates the stats of the item
         itemCalculate(){
 
             switch(this.rarity){
-                case 2 :
+                case 2 : // Broken Key (green)
                     this.keyDuration = 10;
                     this.canOpenHatch = false;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/greenKey-bfd55ddf.webp";
                     
                     break;
-                case 3 :
+                case 3 : // Dull Key (purple)
                     this.keyDuration = 5;
                     this.canOpenHatch = true;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/PurpleKey-914e5aea.webp";
             
                     break;
-                case 4 :
+                case 4 : // Skeleton Key (pink)
                     this.keyDuration = 30;
                     this.canOpenHatch = true;
                     
@@ -110,54 +115,54 @@ export default {
             for (let i = 0; i < 2;i++){ 
 
                 switch(curAddon){
-                    case 1 :
+                    case 1 : //Prayer Rope
                         this.keyDuration = this.keyDuration + 10;
                         console.log("Key Duration : "+this.keyDuration);
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_prayerRope-ae656edc.webp";
                         break;
-                    case 2 :
+                    case 2 : //Scratched Pearl
                         this.extraRange = this.extraRange + 12;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_scratchedPearl-f7f819bd.webp";
                         break;
-                    case 3 :
+                    case 3 : //Prayer Beads
                         this.keyDuration = this.keyDuration + 15;
                         console.log("Key Duration : "+this.keyDuration);
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_prayerBeads-87b7e914.webp";
                         break;
-                    case 4 : 
+                    case 4 : //Eroded Token
                         this.erodedToken = true;
                         console.log("Eroded Token is true");
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_erodedToken-2337862a.webp";
                         break;
-                    case 5 :
+                    case 5 : //Gold Token
                         this.goldToken = true;
                         console.log("Gold Token");
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_goldToken-26df4b34.webp";
                         break;
-                    case 6 :
+                    case 6 : //Weaved Ring
                         this.weavedRing = true;
                         console.log("Glassbead : "+this.weavedRing);
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_weavedRing-fa90d688.webp";
                         break;
-                    case 7 : 
+                    case 7 : //Milk Glass
                         this.milkyGlass = true;
                         console.log("Map Range : "+this.milkyGlass);
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_milkyGlass-2bac049b.webp";
                         break;
-                    case 8 :
+                    case 8 : //Blood Amber
                         this.bloodAmber = true;
                         console.log("Tracks : "+this.bloodAmber);
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_bloodAmber-77b24651.webp";
                         break;
-                    case 9 :
+                    case 9 : //Unique Wedding Ring
                         this.weddingRing = true;
                         console.log("Crystalbead : "+this.weddingRing);
                         
@@ -165,6 +170,12 @@ export default {
                         break;
                     case 0 :
                         //no addon, no additional affects
+                        if(i==0){
+                            this.addon1Exist = false;
+                        }
+                        else if(i==1){
+                            this.addon2Exist = false;
+                        }
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_yellowWire-4925ac38.webp";
                         break;
                 }
@@ -190,7 +201,7 @@ export default {
                 this.keyDuration = this.keyDuration * 0.5;
             }
 
-            let itemInfo = "• "+ this.keyDuration + " seconds of use <br>";
+            let itemInfo = "• <b>"+ this.keyDuration + "</b> seconds of use <br>";
             
             
             if(this.canOpenHatch){
@@ -205,21 +216,21 @@ export default {
             if(this.goldToken){
                 itemInfo += "• Can reveal survivors' Auras within ";
                 survAura = 48 + this.extraRange;
-                itemInfo += survAura + " metres <br>";
+                itemInfo += "<b>"+survAura + "</b> metres <br>";
                 
 
             }
             else if(this.erodedToken){
                 itemInfo += "• Can reveal survivors' Auras within ";
                 survAura = 24 + this.extraRange;
-                itemInfo += survAura + " metres <br>";
+                itemInfo += "<b>"+survAura + "</b> metres <br>";
             }
 
             let killerAura = 0;
             if(this.bloodAmber){
                 itemInfo += "• Can reveal the killer's Aura within ";
                 killerAura = 32 + this.extraRange;
-                itemInfo += killerAura + " metres <br>";
+                itemInfo += "<b>"+killerAura + "</b> metres <br>";
             }
 
             if(this.weavedRing){
@@ -249,6 +260,10 @@ export default {
 
 <template>
     <div class="container">
+
+        <router-link to="/">
+            <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
+        </router-link>
     
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
@@ -291,9 +306,9 @@ export default {
             <div class="col img-col">
                 <h1>🗝️Your Item🗝️</h1>
 
-                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap">
-                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" @load="renderItem">
-                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2">
+                <img v-bind:src="itemImage" alt="Chosen Item" class="img-fluid" width="100" id = "finalMap" @load="renderItem">
+                <img v-bind:src="addon1Image" alt="1st Chosen addon" class="img-fluid" width="80" id = "finalAddon1" v-if="addon1Exist">
+                <img v-bind:src="addon2Image" alt="2nd Chose addon" class="img-fluid" width="80" id = "finalAddon2" v-if="addon2Exist">
                 <br>
                 <h3>Your key has</h3>
                 <b id="info"></b>

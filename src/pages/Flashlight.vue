@@ -36,6 +36,7 @@ export default {
         }
     },
     methods : {
+        //stores rarity selected and switches to addon screen
         raritySelect(theRarity){
             this.rarity = theRarity;
             console.log("Selected Rarity = "+this.rarity);
@@ -43,6 +44,7 @@ export default {
             this.askFor1stAddon = true;
         },
 
+        //stores 2 addons, calls itemCalculate() and switches to final item screen
         AddonSelect(addon){
             if(this.askFor1stAddon == true){
 
@@ -79,7 +81,7 @@ export default {
         },
 
         
-        //calcualtes info for item
+        //Calculates the stats of the item
         itemCalculate(){
 
             let depletionRate = 1;
@@ -90,12 +92,12 @@ export default {
             let beamAccMult = 0;
 
             switch(this.rarity){
-                case 1 :
+                case 1 : // Flashlight (yellow)
                     this.lightDuration = 8;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/yellowFlashLight-d31a4264.webp"
                     break;
-                case 2 :
+                case 2 : //Sport Flashlight (green)
                     this.lightDuration = 8;
                     depletionRate = depletionRate - 0.11;
                     console.log("DepletionRate = "+depletionRate);
@@ -103,7 +105,7 @@ export default {
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/greenFlashLight-a31e094b.webp";
                     
                     break;
-                case 3 :
+                case 3 : //Utility Flashlight (purple)
                     this.lightDuration = 12;
                     beamBrightMult += 0.3;
                     blindDuratiodMult += 0.15;
@@ -112,20 +114,20 @@ export default {
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/purpleFlashLight-a80bf6c4.webp";
             
                     break;
-                case 5 :
+                case 5 : // Will O' Wisp (event)
                     this.lightDuration = 8;
                     this.spooky = true;
                     
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/willFlashLight-ab23c91e.webp";
                     
                     break;
-                case 6 :
+                case 6 : // Anniversary Flashlight (event)
                     this.lightDuration = 8;
                     this.confetti = true;
 
                     this.itemImage = "https://whatexactlydoesmyitemdo.web.app/assets/anniFlashLight-b86d7a09.webp"
                     break;
-                case 7 :
+                case 7 : //Masquerade Flashlight (event)
                     this.lightDuration = 8;
                     this.confetti = true;
 
@@ -144,50 +146,50 @@ export default {
             for (let i = 0; i < 2;i++){ 
 
                 switch(curAddon){
-                    case 1 :
+                    case 1 : //Wide Lens
                         beamWidthMult += 0.25;
                         beamReachMutl += -0.25;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_wideLens-c6079cc4.webp";
                         break;
-                    case 2 :
+                    case 2 : //Power Bulb
                         beamBrightMult += 0.2;
                         blindDuratiodMult += 0.1;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_powerBulb-4ab0a8e0.webp";
                         break;
-                    case 3 :
+                    case 3 : //Leather Grip
                         beamAccMult += 0.2;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_leatherGrip-fdab5d86.webp";
                         break;
-                    case 4 : 
+                    case 4 : //Battery
                         this.lightDuration += 2;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_battery-2d31cf30.webp";
                         break;
-                    case 5 :
+                    case 5 : //TIR Optic
                         beamBrightMult += 0.3;
                         blindDuratiodMult += 0.15;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_tirOptic-7659b954.webp";
                         break;
-                    case 6 :
+                    case 6 : //Rubber Grip
                         beamAccMult += 0.4;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_rubberGrip-0e2998f6.webp";
                         break;
-                    case 7 : 
+                    case 7 : //Low Amp Filement
                         depletionRate += -0.2;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_lowAmpFilament-12d8bbd9.webp";
                         break;
-                    case 8 :
+                    case 8 : //Heavy Duty Battery
                         this.lightDuration += 4;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_heavyDutyBattery-a55dbf24.webp";
                         break;
-                    case 9 :
+                    case 9 : //Focus Lens
                         beamReachMutl += 0.25;
                         beamBrightMult += 0.2;
                         blindDuratiodMult += 0.1;
@@ -195,18 +197,18 @@ export default {
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_focusLens-843ed02e.webp";
                         break;
-                    case 10 :
+                    case 10 : //Long Life Battery
                         this.lightDuration += 6;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_longLifeBattery-02186eb9.webp";
                         break;
-                    case 11 :
+                    case 11 : //Intense Halogen
                         beamBrightMult += 0.4;
                         blindDuratiodMult += 0.2;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_intenseHalogen-ab50d617.webp";
                         break;
-                    case 12 :
+                    case 12 : //High-end Sapphire Lens
                         beamReachMutl += 0.25;
                         beamBrightMult += 0.3;
                         blindDuratiodMult += 0.15;
@@ -214,14 +216,14 @@ export default {
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_high-EndSapphireLens-edb0593a.webp";
                         break;
-                    case 13 :
+                    case 13 : //Odd Bulb
                         beamBrightMult += 0.5;
                         blindDuratiodMult += 0.25;
                         depletionRate += 0.14;
                         
                         curAddonImageID = "https://whatexactlydoesmyitemdo.web.app/assets/FulliconAddon_oddBulb-5c09898b.webp";
                         break;
-                    case 14 :
+                    case 14 : //Broken Bulb
                         beamBrightMult += 0.15;
                         blindDuratiodMult += 0.30;
                         this.flicker = true;
@@ -267,24 +269,24 @@ export default {
         renderItem(){
 
 
-            let itemInfo = "• "+ this.lightDuration.toFixed(2) + " seconds of use <br>";
-            itemInfo += "• " + this.lightRange.toFixed(2) + " metres of range <br>";
-            itemInfo += "• Takes 1 second to blind<br>";
-            itemInfo += "• Blinds for " + this.blindsFor.toFixed(2) +" seconds <br>";
-            itemInfo += "• Has a beam width of "+this.beamAngle+" degress<br>";
+            let itemInfo = "• <b>"+ this.lightDuration.toFixed(2) + "</b> seconds of use <br>";
+            itemInfo += "• <b>" + this.lightRange.toFixed(2) + "</b> metres of range <br>";
+            itemInfo += "• Takes <b>1</b> second to blind<br>";
+            itemInfo += "• Blinds for <b>" + this.blindsFor.toFixed(2) +"</b> seconds <br>";
+            itemInfo += "• Has a beam width of <b>"+this.beamAngle+"</b> degress<br>";
             
             if(this.beamBrightness != 0){
-                itemInfo += "• "+this.beamBrightness.toFixed(0)+"% brighter beams<br>";
+                itemInfo += "• <b>"+this.beamBrightness.toFixed(0)+"%</b> brighter beams<br>";
             }
             
             
             if(this.aimAccuracy != 0){
                 if(this.aimAccuracy > 0){
-                    itemInfo += "• "+this.aimAccuracy+"% better accuracy (reduced sway)<br>";
+                    itemInfo += "• <b>"+this.aimAccuracy+"%</b> better accuracy (reduced sway)<br>";
                 }
                 if(this.aimAccuracy < 0){
                     this.aimAccuracy = this.aimAccuracy *-1;
-                    itemInfo += "• "+this.aimAccuracy+"% worse accuracy (increased sway)<br>";
+                    itemInfo += "• <b>"+this.aimAccuracy+"%</b> worse accuracy (increased sway)<br>";
                 }
             }
 
@@ -312,6 +314,10 @@ export default {
 
 <template>
     <div class="container">
+
+        <router-link to="/">
+            <button class="btn btn-warning btn-lg fixed-top" style="color: black;" @click="AddonSelect(0)"><h4>New Item</h4></button>
+        </router-link>
         
         <div class=" border position-fixed top-50 start-50 translate-middle shadow p-5 mb-5 bg-body-tertiary rounded" style="text-align: center;" v-if="askForRare">
 
